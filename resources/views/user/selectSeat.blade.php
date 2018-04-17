@@ -136,7 +136,7 @@
                     @if(Cookie::has('username'))
                         <button class="btn btn-success confirm-ticket">确认选座</button>
                     @else
-                        <button class="btn btn-danger">请登录</button>
+                        <a href="{{ Route('log') }}" class="btn btn-danger">请登录</a>
                     @endif
                 </div>
             </div>
