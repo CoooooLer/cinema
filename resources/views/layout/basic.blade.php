@@ -148,7 +148,6 @@
 
             })
 
-
         </script>
         @show
 </body>
