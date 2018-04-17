@@ -141,11 +141,9 @@
                                 });
                                     $('.hot-movie-list').html($html);
                                 },
-
                         });
                    }
                 });
-
             })
 
         </script>
