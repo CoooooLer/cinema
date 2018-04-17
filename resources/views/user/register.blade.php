@@ -105,7 +105,7 @@
                             {
                                 setTimeout(function () {
                                     window.location.href="{{ url('log') }}";
-                                },2000);
+                                },800);
                             }
                         });
                     },

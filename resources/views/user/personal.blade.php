@@ -13,10 +13,13 @@
                 <div class="box-body manager">
                     <div id="userList" class="users-list">
                         <table class="table">
+                            <tr><div style="display: flex;justify-content: flex-end;align-items: center;padding: 0 10px;">
+                                    余额：<div style="color: #eb5524;font-size: 22px">
+                                        {{ $user->money }}</div>元</div>
+                            </tr>
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>用户名</th>
                                 <th>电影院</th>
                                 <th>影厅</th>
                                 <th>电影</th>
@@ -24,6 +27,7 @@
                                 <th>结束时间</th>
                                 <th>座位</th>
                                 <th>时间</th>
+                                <th>票价</th>
                                 <th>电话</th>
                                 <th>操作</th>
                             </tr>
@@ -35,7 +39,6 @@
                                     <tr>
                                         <input type="hidden"  class="ticketId" value="{{ $ticket->id }}" />
                                         <td>{{ $ticket->id }}</td>
-                                        <td>{{ $ticket->username }}</td>
                                         <td>{{ $ticket->cinema_name }}</td>
                                         <td>{{ $ticket->s_name }}</td>
                                         <td>{{ $ticket->movie_name }}</td>
@@ -43,6 +46,7 @@
                                         <td>{{ $ticket->s_end }}</td>
                                         <td>{{ $ticket->row }}排{{ $ticket->column }}座</td>
                                         <td>{{ $ticket->date }}</td>
+                                        <td>{{ $ticket->price }}</td>
                                         <td>{{ $ticket->phone }}</td>
                                         <td>
                                             <input type="button"class="btn btn-danger btn-sm drop" data-ticketId={{ $ticket->id }} value="退票" />

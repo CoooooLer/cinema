@@ -7,8 +7,8 @@ a{
     text-decoration: none;
 }
 a:hover{
-    text-decoration: none;
-
+    text-decoration: none!important;
+    color: #eb5524!important;
 }
 ul li{
     list-style: none;
@@ -63,7 +63,7 @@ body{
 }
 .header-nav .nav-unit:hover{
     /*background-color: #eb5524;*/
-    color: #ffffff;
+    color: #ffffff!important;
     text-decoration: none;
 }
 .nav-slider{
@@ -1126,6 +1126,7 @@ a{
     padding: 20px 0 10px;
     border-top: 1px dashed #e5e5e5;
     border-bottom: 1px dashed #e5e5e5;
+    height: 142px;
 }
 .ticket-info .buy-limit{
     font-size: 14px;

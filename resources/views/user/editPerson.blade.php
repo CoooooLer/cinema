@@ -10,6 +10,7 @@
 @section('title','修改个人资料')
 
 @section('header')
+    @parent
 @endsection
 
 @section('content')

@@ -212,9 +212,10 @@ class UserController extends Controller
     public function personal()
     {
         $username = $_COOKIE['username'];
+        $user = User::where('username','=',$username)->first();
         $tickets = Ticket::where('username','=',$username)->get();
 //        dd($ticket);
-        return view('user.personal',['tickets' => $tickets]);
+        return view('user.personal',['tickets' => $tickets,'user' => $user]);
     }
 
     public function dropTicket(Request $request)
@@ -222,6 +223,7 @@ class UserController extends Controller
         $index = 0;
         $ticketId = $request->ticketId;
         $ticket = Ticket::find($ticketId);
+//        dd($ticket);
         $price = $ticket->price;
 //        dd($price);
         $row = $ticket->row;

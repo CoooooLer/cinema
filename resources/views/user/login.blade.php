@@ -94,7 +94,7 @@
                             {
                                 setTimeout(function () {
                                     window.location.href='{{ Route('home') }}';
-                                },2000);
+                                },800);
                             }
                         });
                     },

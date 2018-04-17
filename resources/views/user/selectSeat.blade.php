@@ -39,7 +39,7 @@
                     </div>
                     <div class="red seat">已售座位</div>
                     <div class="green seat">已选座位</div>
-                    <div class="double seat" style="padding-left: 77px;">情侣座位</div>
+                    {{--<div class="double seat" style="padding-left: 77px;">情侣座位</div>--}}
                 </div>
                 <div class="seat-block">
                     <div class="row-id-container">
@@ -133,7 +133,11 @@
                     </div>
                 </div>
                 <div class="confirm-order">
-                    <button class="btn btn-success confirm-ticket">确认选座</button>
+                    @if(Cookie::has('username'))
+                        <button class="btn btn-success confirm-ticket">确认选座</button>
+                    @else
+                        <button class="btn btn-danger">请登录</button>
+                    @endif
                 </div>
             </div>
         </div>
@@ -161,7 +165,7 @@
     <div class="seat-bg">
         <div class="seat-load">
             <img src="img/load01.gif" alt="">
-            <p>正在购票，请稍候</p>
+            <p style="color: #eb5524;">正在购票，请稍候</p>
         </div>
     </div>
 @endsection
@@ -174,19 +178,25 @@
             $rowArr = [];
             $columnArr = [];
 
+            $rowArrCheck = [];
+            $columnArrCheck = [];
+
             $('.selectable').map(function (i) {
                 $i = 0;
-//                $sellPrice = $('.sellPrice').attr('data-price');
-                $sellPrice = 23;
+                $sellPrice = $('.sellPrice').attr('data-price');
+//                $sellPrice = 23;
                 $allPrice = 0;
 
-                $iArr = [];
                 /*选座的单击事件*/
                 $(this).on('click',function () {
                     $row = $(this).attr('data-row-id');
                     $column = $(this).attr('data-column-id');
-                    $(this).toggleClass('green');
 
+                    console.log($column);
+
+                    $rowArrCheck[i] = $row;
+                    $columnArrCheck[i] = $column;
+                    $(this).toggleClass('green');
 
                     /*判断是否选中  green*/
                     $sign = ($(this).attr('class'));
@@ -195,56 +205,19 @@
                     $('.no-ticket').css({'display':'none'});
                     $('.has-ticket').css({'display':'block'});
 
-//                    console.log($iArr[i],i,$sign);
-//                    console.log($iArr[i]!==i);
-                    if($iArr[i] === i && $sign<0)
+//                    console.log($sign);
+//                    console.log($rowArrCheck.indexOf($row));
+//                    console.log($columnArrCheck.indexOf($column));
+//                    console.log('___________________');
+                    if($sign>0 && $rowArrCheck.indexOf($row)>0 && $columnArrCheck.indexOf($column)>0)
                     {
-                        $iArr[i] = -1;
-                        $('.ticket-container span:last').remove();
-                            $allPrice -= parseInt($sellPrice);
-                            $('.allPrice').html($allPrice);
-                    }
-                    else
-                    {
-                        $iArr[i] = i;
-                    }
-
-
-                    if($iArr[i]!==i && $sign>0)
-                    {
-                        $allPrice += parseInt($sellPrice);
-                        $span = $("<span></span>").text($row+'排'+$column+'座');
-                        $('.ticket-container').append($span);
-                        $('.allPrice').html($allPrice);
-
-                    }
-
-                    if($sign>0)
-                    {
-                        if($rowArr.indexOf($row)>0 && $columnArr.indexOf($column)>0)
-                        {
-                            console.log('--');
-//                            $rowArr[$i] = null;
-//                            if($rowArr[$i] == $row && $columnArr[$i] == $column)
-//                            {
-//                                console.log($rowArr[$i] == $row);
-//                                $('.ticket-container span:last').remove();
-//                                $allPrice -= parseInt($sellPrice);
-//                                $('.allPrice').html($allPrice+'元');
-//                            }
-//                            console.log($rowArr.indexOf($row),$columnArr.indexOf($column));
-//                            $('.ticket-container span:last').remove();
-//                            $allPrice -= parseInt($sellPrice);
-//                            $('.allPrice').html($allPrice+'元');
-                        }
-                        else
-                        {
-                            console.log('++');
                             $i++;
 //                            console.log($i);
                             $rowArr[$i] = $row;
                             $columnArr[$i] = $column;
                             $allPrice += parseInt($sellPrice);
+                            console.log($columnArr);
+                            console.log('_______________');
                             if($i>3)
                             {
                                 $('.selectable').unbind();
@@ -255,8 +228,15 @@
                             $('.ticket-container').append($span);
 
                             $('.allPrice').html($allPrice);
-                        }
 
+                    }
+                    else
+                    {
+                        $i--;
+                        $('.ticket-container span:last').remove();
+                            $allPrice -= parseInt($sellPrice);
+                            $('.allPrice').html($allPrice);
+//                    }
                     }
 
                 })
@@ -301,19 +281,19 @@
                                         $('.seat-bg').css({'display':'none'});
                                         $('.seat-load').css({'display':'none'});
                                         alert('购票成功');
+                                        window.location.reload();
+
                                     }
                                     else
                                     {
                                         alert('购票失败');
                                     }
-                                },4000);
+                                },2000);
                             },
                             error:function () {
 //                              alert('error');
                             },
                         });
-
-
                     },1000);
                 });
             });
