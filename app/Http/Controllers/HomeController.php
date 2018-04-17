@@ -187,9 +187,33 @@ class HomeController extends Controller
 
     }
 
+    public function movie()
+    {
+        $url = 'http://api.douban.com/v2/movie/coming_soon';
+        $movies = $this->getApi($url);
+//        dd($movies);
+        return view('user.movie',['movies' => $movies]);
+    }
 
+    public function movieTop()
+    {
+        $url = 'http://api.douban.com/v2/movie/top250';
+        $movies = $this->getApi($url);
+//        dd($movies);
+        $url = 'http://api.douban.com/v2/movie/us_box';
+        $usa = $this->getApi($url);
+        return view('user.movieTop',['movies'=> $movies,'usa' => $usa]);
+    }
 
+    public function search(Request $request)
+    {
+        $keyword = $request->keyword;
+        $url = 'http://api.douban.com/v2/movie/search?q='.$keyword;
+        $movie = $this->getApi($url);
+//        dd($movie);
+        return $movie;
 
+    }
 
 
     //调用影片API、影院API

@@ -20,12 +20,12 @@
                     <a href="{{ Route('home') }}" class="nav-unit header-nav-active primary">首页</a>
                     <a href="{{ Route('movie') }}" class="nav-unit">电影</a>
                     <a href="{{ Route('cinemas') }}" class="nav-unit">影院</a>
-                    <a class="nav-unit">榜单</a>
+                    <a href="{{ Route('movieTop') }}" class="nav-unit">榜单</a>
                     <a class="nav-unit">热点</a>
                     <div class="nav-slider"></div>
                 </div>
                 <div class="search has-error">
-                    <input class="form-control keyword " id="sea-keyword" placeholder="找电影...按Enter搜索" style="height: 40px">
+                    <input class="form-control keyword" id="sea-keyword" placeholder="找电影...按Enter搜索" style="height: 40px">
                 </div>
                 <div class="nav-login" role="navigation">
 
@@ -39,7 +39,8 @@
                                     <li><a href="editPerson?username={{ Cookie::get('username') }}"><span class="glyphicon glyphicon-user"></span>修改资料</a></li>
 
                                     @if(  Cookie::get('username') === 'admin'  )
-                                        <li><a href="userList"><span class="glyphicon glyphicon-user"></span>管理中心</a></li>
+                                        <li><a href="userList"><span class="glyphicon glyphicon-user"></span>用户管理</a></li>
+                                        <li><a href="ticketList"><span class="glyphicon glyphicon-user"></span>购票管理</a></li>
                                     @endif
                                     <li><a href=" {{ Route('logOut') }} "><span class="glyphicon glyphicon-user"></span>退出登录</a></li>
                                     {{--<li><a href="{{ Route('user.show') }}"><span class="glyphicon glyphicon-user"></span>个人中心</a></li>--}}
@@ -109,6 +110,41 @@
                 }
 
                 //搜索
+                $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
+                $('.keyword').on('keypress',function (e) {
+                   if(e.keyCode == 13)
+                   {
+                        $keyword = $('.keyword').val();
+                        $.ajax({
+                            url:'search',
+                            type:'get',
+                            data:{'keyword': $keyword},
+                            success:function (data) {
+                                console.log(data['subjects']);
+                                $movies = data;
+                                $html = '';
+                                $.each(data['subjects'],function (i,val) {
+                                    $html += `
+
+                                        <div class="hot-movie-unit">
+                                            <div class="hot-img-box">
+                                                <a href=" movieInfo?id=${val['id']} " target="_blank"><img src="${val['images']['large']}"></a>
+
+                                                </div>
+                                                <div class="movie-info-box">
+                                                    <a href="movieInfo?id=${val['id']}" class="movie-info" target="_blank" title="${val['title']}" data-psource="title">
+                                                    ${val['title']}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    `
+                                });
+                                    $('.hot-movie-list').html($html);
+                                },
+
+                        });
+                   }
+                });
 
             })
 

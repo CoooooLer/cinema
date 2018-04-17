@@ -528,7 +528,7 @@ a{
 }
 .hot-ticket:hover{
     background-color:#eb5524 ;
-    color: #ffffff;
+    color: #ffffff!important;
     text-decoration: none;
 }
 
@@ -1206,6 +1206,70 @@ a{
 
 
 /*selectSeat 选座页面 end*/
+
+/*影片排行榜 start*/
+.movie-top-content{
+    display: flex;
+    justify-content: space-between;
+
+}
+.movie-top-left{
+    display: flex;
+    flex-direction: column;
+    width: 675px;
+}
+.movie-top-left .movie-info-box{
+    display: flex;
+    flex-direction: column;
+}
+.movie-top-unit{
+    display: flex;
+    padding:10px 0;
+    border-top: 1px dashed #eeeeee;
+    width:100%;
+}
+.movie-top-unit:hover{
+    background: #ededed;
+}
+.movie-top-unit:hover a{
+    color: #ff5e59;
+}
+.movie-top-unit .img{
+    padding: 5px 0;
+    width: 75px;
+}
+.movie-top-unit img{
+    width:75px;
+}
+
+.movie-info-box{
+    padding-left: 20px;
+    overflow: hidden;
+    width: 160px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.movie-top-title{
+    padding: 2px 0;
+    text-align: left;
+}
+.movie-top-type{
+    padding: 2px 0;
+    text-align: left;
+
+}
+.movie-top-info{
+    padding:2px 0;
+    text-align: left;
+
+}
+.movie-top-right{
+    width: 300px;
+}
+
+
+
+/*影片排行榜 end*/
 
 
 

@@ -9,7 +9,11 @@
 namespace App\Http\Controllers;
 
 
+
+use App\model\Seat;
 use App\model\User;
+use App\model\Ticket;
+use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
@@ -148,7 +152,42 @@ class AdminController extends Controller
 
     }
 
+    /*退票页面*/
+    public function ticketList()
+    {
+        $tickets = Ticket::all();
+        return view('admin.ticketList',['tickets' => $tickets]);
+    }
 
+
+    /*退票确认*/
+    public  function adminDropTicket(Request $request)
+    {
+        $ticketId = $request->ticketId;
+        $ticket = Ticket::find($ticketId);
+        $username = $ticket->username;
+        $price = $ticket->price;
+        $sId = $ticket->sId;
+        $row = $ticket->row;
+        $column = $ticket->column;
+        $ticket = $ticket->delete();
+
+        $user = User::where('username','=',$username)->first();
+        $user->money = $user->money+$price;
+        $user = $user->save();
+        $seat = Seat::where('sId','=',$sId)->where('row','=',$row)->where('column','=',$column)->first();
+        $seat->status = 0;
+        $seat = $seat->save();
+        if($ticket && $user && $seat)
+        {
+            return 'success';
+        }
+        else
+        {
+            return 'fail';
+        }
+
+    }
 
 
 

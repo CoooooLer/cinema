@@ -230,13 +230,13 @@ class UserController extends Controller
         $column = $ticket->column;
         $sId = $ticket->sId;
         $ticket->delete();
-        $seat = Seat::where('row','=',$row)->where('column','=',$column)->first();
+        $seat = Seat::where('row','=',$row)->where('column','=',$column)->where('sId','=',$sId)->first();
         $seat->status = $index;
         $bool = $seat->save();
         $username = $_COOKIE['username'];
         $user = User::where('username','=',$username)->first();
         $user->money = $user->money+$price;
-        $user->save();
+        $user = $user->save();
         if($bool && $user)
         {
            return 'success';

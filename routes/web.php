@@ -18,6 +18,8 @@ Route::get('/cinema','HomeController@cinema')->name('cinema');
 Route::get('/showScreen','HomeController@showScreen')->name('showScreen');
 Route::get('/selectSeat','HomeController@selectSeat')->name('selectSeat');
 Route::any('/ticket','HomeController@ticket')->name('ticket');
+Route::any('/movie','HomeController@movie')->name('movie');
+Route::any('/movieTop','HomeController@movieTop')->name('movieTop');
 //Route::view('/selectSeat','user.selectSeat')->name('selectSeat');
 
 /*用户相关*/
@@ -32,12 +34,13 @@ Route::any('/editPersonInfo','UserController@editPersonInfo')->name('editPersonI
 
 Route::any('/personal','UserController@personal')->name('personal');
 Route::any('/dropTicket','UserController@dropTicket')->name('dropTicket');
-
-
+Route::any('/search','HomeController@search')->name('search');
+/*管理员操作*/
 Route::any('/userList','AdminController@userList')->name('userList');
 Route::any('/deleteUser','AdminController@deleteUser')->name('deleteUser');
+Route::any('/ticketList','AdminController@ticketList')->name('ticketList');
+Route::any('/adminDropTicket','AdminController@adminDropTicket')->name('adminDropTicket');
 
-/*管理员操作*/
 Route::any('/userEdit','AdminController@userEdit')->name('userEdit');
 Route::any('/editUserInfo','AdminController@editUserInfo')->name('editUserInfo');
 Route::any('/createUser','AdminController@createUser')->name('createUser');
@@ -46,13 +49,11 @@ Route::any('/createUser','AdminController@createUser')->name('createUser');
 Route::view('/create','admin.userCreate')->name('create');
 Route::view('/list','admin.userList')->name('list');
 Route::view('/userTicket','admin.userTicket');
-//Route::view('/personal','user.personal');
+//Route::view('/movieTop','user.movieTop');
 
 
 
-Route::get('/movie',function (){
-    return view('user.movie');
-})->name('movie');
+
 //Route::get('/cinema',function(){
 //    return view('user.cinema');
 //})->name('cinema');

@@ -81,11 +81,11 @@
                                         {{--</div>--}}
                                     </div>
                                     <div class="movie-info-box">
-                                        <a href="" class="movie-info" target="_blank" title="{{ $movie1['title'] }}" data-psource="title">
+                                        <a href="movieInfo?id={{ $movie1['id'] }}" class="movie-info" target="_blank" title="{{ $movie1['title'] }}" data-psource="title">
                                             {{ $movie1['title'] }}
                                         </a>
                                     </div>
-                                    <a href="" class="hot-ticket">选座购票</a>
+                                    <a href="movieInfo?id={{ $movie1['id'] }}" class="hot-ticket">选座购票</a>
                                 </div>
                             {{--@endforeach--}}
                         @endforeach
@@ -95,15 +95,6 @@
             <div class="content-home-today">
                 <div class="hot-title">今日票房</div>
                 <div class="today-list">
-                    {{--<div class="today-unit today-first">--}}
-                        {{--<a href="" class="today-first-box">--}}
-                            {{--<img src="http://p0.meituan.net/mmdb/8cec4c4c306fff261dc97e22df285c891437682.jpg" alt="http://p0.meituan.net/mmdb/8cec4c4c306fff261dc97e22df285c891437682.jpg">--}}
-                            {{--<div class="today-first-info">--}}
-                                {{--<p>厉害了，我的国</p>--}}
-                                {{--<p>1487.45万</p>--}}
-                            {{--</div>--}}
-                        {{--</a>--}}
-                    {{--</div>--}}
                     @foreach($usa['subjects'] as $data)
                         <div class="today-unit">
                             <a href="" class="today-unit-a">
