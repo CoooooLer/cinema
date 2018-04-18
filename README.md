@@ -3,7 +3,7 @@
 ```
 1.  composer install 
 ```
-
+ 
 ```
 2.  配置 .env
 ```
