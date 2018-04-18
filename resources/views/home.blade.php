@@ -117,6 +117,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/banner.js"></script>
     <script>
+
 //        $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
 //        $.ajax({
 //           url:'https://movie.douban.com/j/search_subjects?type=tv&tag=%E7%83%AD%E9%97%A8&page_limit=50&page_start=0',
