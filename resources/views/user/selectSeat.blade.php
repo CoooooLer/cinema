@@ -134,7 +134,9 @@
                     </div>
                 </div>
                 <div class="confirm-order">
-                    @if(Cookie::has('username') && Cookie::get('username') !== 'admin')
+                    @if(Cookie::get('username') === 'admin')
+                        <button class="btn btn-info">admin无法购票</button>
+                    @elseif(Cookie::has('username')  )
                         <button class="btn btn-success confirm-ticket">确认选座</button>
                     @else
                         <a href="{{ Route('log') }}" class="btn btn-danger">请登录</a>
@@ -188,6 +190,7 @@
 //                $sellPrice = 23;
                 $allPrice = 0;
 
+
                 /*选座的单击事件*/
                 $(this).on('click',function () {
                     $row = $(this).attr('data-row-id');
@@ -217,6 +220,7 @@
                             $rowArr[$i] = $row;
                             $columnArr[$i] = $column;
                             $allPrice += parseInt($sellPrice);
+                            console.log($allPrice);
                             console.log($columnArr);
                             console.log('_______________');
                             if($i>3)

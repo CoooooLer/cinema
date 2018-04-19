@@ -35,6 +35,7 @@ class HomeController extends Controller
 //        dd($response);
         //正在热映影片信息
         $url = 'http://api.douban.com/v2/movie/in_theaters';
+//        $url = 'http://m.maoyan.com/movie/list.json?type=hot';
         $response = $this->getApi($url);
         //影片排行信息
         $url = 'http://api.douban.com/v2/movie/us_box';
@@ -142,6 +143,7 @@ class HomeController extends Controller
 //        dd($movieName,$cinemaName,$screenId,$allPrice);
         $screen = Screen::find($screenId);
 //        dd($screen);
+        $screen->save();
         $sId = $screen->sId;
         $s_name = $screen->s_name;
         $s_start = $screen->s_start;
@@ -151,8 +153,11 @@ class HomeController extends Controller
         $username = $_COOKIE['username'];
         $user = User::where('username','=',$username)->first();
         $phone = $user->phone;
+        $user->phone = 1343622;
         $user->money -= $allPrice;
         $user->save();
+//        dd($username,$user->money,$user->phone,$user);
+//        dd($user->money);
         $rowArr = $_POST['rowArr'];
         $columnArr = $_POST['columnArr'];
 //        dd($rowArr[1],$columnArr[1]);
