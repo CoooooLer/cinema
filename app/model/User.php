@@ -23,7 +23,7 @@ class User extends Model
         'username',
         'password',
         'phone',
-
+        'money'
     ];
 
     /**

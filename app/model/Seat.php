@@ -18,6 +18,7 @@ class Seat extends Model
     public $timestamp = true;
 
     protected $fillable = [
+        'sId',
         'row',
         'column',
         'status',

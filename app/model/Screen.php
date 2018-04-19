@@ -23,6 +23,7 @@ class Screen extends Model
         'price',
         's_start',
         's_end',
+        'date'
     ];
 
 

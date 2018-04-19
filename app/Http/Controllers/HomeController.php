@@ -91,9 +91,15 @@ class HomeController extends Controller
         $url ='http://api.douban.com/v2/movie/subject/' . $movieId;
         $movie = $this->getApi($url);
         $screens = Screen::all();
+        $date = Screen::first()->date;
+        $date1 = date("Y-m-d",strtotime("+1 day",strtotime($date)));;
 //        dd($cinema);
 
-        return view('user.showScreen',['cinema' => $cinema],['screens' => $screens]);
+        return view('user.showScreen',['cinema' => $cinema,
+            'screens' => $screens,
+            'date' => $date,
+            'date1' => $date1
+        ]);
     }
 
     public function selectSeat()

@@ -111,7 +111,8 @@
                         </div>
                         <div class="info-item">
                             <span>票价 :</span>
-                            <span class="value text-ellipsis sellPrice" data-price="{{ (array_values(array_values($cinema['data'])[0])[0])['sellPrice']  }}">￥{{ (array_values(array_values($cinema['data'])[0])[0])['sellPrice']  }}/张</span>
+                            {{--<span class="value text-ellipsis sellPrice" data-price="{{ (array_values(array_values($cinema['data'])[0])[0])['sellPrice']  }}">￥{{ (array_values(array_values($cinema['data'])[0])[0])['sellPrice']  }}/张</span>--}}
+                            <span class="value text-ellipsis sellPrice" data-price="{{ $screen->price  }}">￥{{ $screen->price }}/张</span>
                         </div>
 
                 </div>
@@ -133,7 +134,7 @@
                     </div>
                 </div>
                 <div class="confirm-order">
-                    @if(Cookie::has('username'))
+                    @if(Cookie::has('username') && Cookie::get('username') !== 'admin')
                         <button class="btn btn-success confirm-ticket">确认选座</button>
                     @else
                         <a href="{{ Route('log') }}" class="btn btn-danger">请登录</a>
@@ -255,7 +256,7 @@
                 $('.confirm-ticket-modal').modal('show')
 
                 $('.confirm-pay').on('click',function () {
-//                    console.log($movieName,$cinemaName,$screenId,$allPrice);
+                    console.log($movieName,$cinemaName,$screenId,$allPrice);
 //                    console.log($rowArr,$columnArr);
                     $screenWidth = $(window).width();
                     $screenHeight = $(window).height();

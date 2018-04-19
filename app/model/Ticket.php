@@ -18,7 +18,7 @@ class ticket extends Model
     public $timestamp = true;
 
     protected  $fillable =[
-      'id',
+
         'sId',
       'username',
       'movie_name',

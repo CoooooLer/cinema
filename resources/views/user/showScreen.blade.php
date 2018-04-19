@@ -50,8 +50,8 @@
         </div>
         <div class="movie-date-show">
             <span>观影时间 :</span>
-            <span class="date-item add-red-color" data-index="0">今天 3月28</span>
-            <span class="date-item" data-index="1">明天 3月29</span>
+            <span class="date-item add-red-color" data-index="0">今天 {{ $date }}</span>
+            <span class="date-item" data-index="1">明天 {{ $date1 }}</span>
         </div>
         <div class="screen-box">
             <div class="screen-title screen-bg" style="background: #f7f7f7">
