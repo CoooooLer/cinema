@@ -7,3 +7,9 @@
 ```
 2.  配置 .env
 ```
+```
+3. php artisan cinema:init
+```
+```
+PS: screen and user 需要填充数据
+```
