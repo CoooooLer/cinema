@@ -29,7 +29,7 @@
                         <div class="form-left">
                             <form id="userForm">
                                 {{ csrf_field() }}
-                                <input type="hidden" value="{{ $user->uid }}"  name="id">
+                                <input type="hidden" value="{{ $user->uId }}"  name="id">
                                 <div class="form-group">
                                     <label>用户名</label>
                                     <input type="text" class="form-control disabled" value="{{ $user->username }}" disabled>

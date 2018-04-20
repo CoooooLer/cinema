@@ -3,10 +3,11 @@
 @section('title', '登录')
 
 @section('header')
+    @parent
     @endsection
 
 @section('content')
-    <div class="content">
+    <div class="content" style="overflow: inherit">
         <div class="container">
             <div class="login">
                 <form action="" method="POST">

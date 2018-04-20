@@ -153,7 +153,6 @@ class HomeController extends Controller
         $username = $_COOKIE['username'];
         $user = User::where('username','=',$username)->first();
         $phone = $user->phone;
-        $user->phone = 1343622;
         $user->money -= $allPrice;
         $user->save();
 //        dd($username,$user->money,$user->phone,$user);

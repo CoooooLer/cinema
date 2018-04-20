@@ -45,17 +45,17 @@
                                 </thead>
                                 <tbody>
                                 @forelse($users as $user)
-                                    <form action="deleteUser={{ $user->uid }}" method="post">
+                                    <form action="deleteUser={{ $user->uId }}" method="post">
                                         {{ csrf_field() }}
                                         <tr>
-                                            <td>{{ $user->uid }}</td>
+                                            <td>{{ $user->uId }}</td>
                                             <td>{{ $user->username }}</td>
                                             <td>{{ $user->phone }}</td>
                                             <td> {{ $user->created_at }} </td>
                                             <td> {{ $user->updated_at }} </td>
                                             {{--<td><span class="label label-danger">禁用</span></td>--}}
                                             <td>
-                                                <a href="userEdit?uId={{ $user->uid }}" class="btn btn-sm btn-default">编辑</a>
+                                                <a href="userEdit?uId={{ $user->uId }}" class="btn btn-sm btn-default">编辑</a>
                                                 @if( $user->username != 'admin' )
                                                     @if( $user->username != Cookie::get('username'))
                                                         <input type="button" id="{{ $user->uid }}" name="{{ $user->uid }}" class="btn btn-danger btn-sm drop" value="删除" />

@@ -3,7 +3,7 @@
 @section('title','注册')
 
 @section('header')
-
+    @parent
 @endsection
 
 @section('content')

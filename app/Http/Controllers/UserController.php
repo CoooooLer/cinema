@@ -186,6 +186,7 @@ class UserController extends Controller
             if($password === $r_password)
             {
                 $user = User::find($id);
+//                dd($password,$id,$user);
                 $user->password = bcrypt($password);
                 $user->phone = $phone;
                 $bool = $user->save();

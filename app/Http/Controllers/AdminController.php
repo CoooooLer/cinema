@@ -45,6 +45,7 @@ class AdminController extends Controller
     {
         $uId = $_GET['uId'];
         $user = User::where('uid','=',$uId)->first();
+//        dd($uId,$user);
         return view('admin.userEdit',['user' => $user]);
 
     }

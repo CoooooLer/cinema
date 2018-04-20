@@ -12,7 +12,7 @@ class User extends Model
      * @var string
      */
     protected $table = 'users';
-    protected $primaryKey = 'uid';
+    protected $primaryKey = 'uId';
     public $timestamps = true;
 
     /**
