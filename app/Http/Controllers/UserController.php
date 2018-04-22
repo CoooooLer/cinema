@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    /*z主要处理用户的信息*/
+    /*主要处理用户的信息*/
     private $validate = [
         'verifyCode'      =>  '/^[A-Za-z0-9]{4}$/u',                                    //4个字符的英文字符串
         'username'      =>  '/^[\x{4e00}-\x{9fa5}A-Za-z0-9_]{3,20}$/u',                //3-20位的中文、英文、数字、下划线

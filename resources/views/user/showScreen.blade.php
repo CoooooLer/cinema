@@ -13,19 +13,26 @@
             <div class="filmInfo-box">
                 <div class="filmInfo-img">
                     {{--<img src=" {{ $results['images']['small'] }} " alt="">--}}
+                    <img src="http://p1.meituan.net/deal/__30193438__3831507.jpg@292w_292h_1e_1c" alt="">
                 </div>
                 {{--@foreach($cinema['data']['cinemaDetailModel'] as $cinema2)--}}
                     {{--@foreach($cinema1['cinemaDetailModel'] as $cinema2)--}}
                         <div class="filmInfo-info" style="margin-top: -50px">
-                            <h3>{{ $cinema['data']['cinemaDetailModel']['nm'] }}</h3>
+                            {{--<h3>{{ $cinema['data']['cinemaDetailModel']['nm'] }}</h3>--}}
+                            <h3>{{ (array_values(array_values($cinema['data'])[0])[0])['nm']  }}</h3>
                             <p>
-                                {{ $cinema['data']['cinemaDetailModel']['addr'] }}
+                                {{--{{ $cinema['data']['cinemaDetailModel']['addr'] }}--}}
+                                {{ (array_values(array_values($cinema['data'])[0])[0])['addr']  }}
                                 {{--@foreach($results['genres'] as $key=>$value)--}}
                                     {{--<span>{{ $value }}</span>--}}
                                 {{--@endforeach--}}
                             </p>
-                            <p>电话：{{ $cinema['data']['cinemaDetailModel']['tel'][0] }}</p>
+                            {{--<p>电话：{{ $cinema['data']['cinemaDetailModel']['tel'][0] }}</p>--}}
+                            <p>电话：0851-28753222</p>
                             <h4>影院服务————————————————————</h4>
+                            <p><div style="">3D眼镜</div></p>
+                            <p><div style="">每位观影用户可免费带领一名身高1.2米（不含）以下儿童同场观影，该儿童与大人同坐，不予单独出票。</div></p>
+                            <p><div style="">商场地下一层有停车场，停车需自费</div></p>
                             {{--@foreach($cinema['data']['cinemaDetailModel']['featureTags'] as $cinema)--}}
                             {{--<p><div style="">{{ $cinema['desc'] }}</div></p>--}}
                             {{--@endforeach--}}
@@ -39,13 +46,16 @@
     <div class="container" style="margin-top: 80px">
         <div class="movie-info-show">
             <div class="movie-title-show">
-                <h3 class="title">title</h3>
+                <h3 class="title">{{ $movie['title'] }}</h3>
                 <span>7.6分</span>
             </div>
             <div class="more-info-show">
-                <div><span class="key">时长：</span><span class="value">11111</span></div>
-                <div><span class="key">类型：</span><span class="value">动作</span></div>
-                <div><span class="key">主演：</span><span class="value">22222</span></div>
+                <div><span class="key">时长：</span><span class="value">132分钟</span></div>
+                <div><span class="key">类型：</span>
+                    @foreach($movie['genres'] as $genres)
+                        <span class="value">{{ $genres }}</span>
+                    @endforeach
+                {{--<div><span class="key">主演：</span><span class="value">22222</span></div>--}}
             </div>
         </div>
         <div class="movie-date-show">
@@ -64,33 +74,12 @@
             @foreach($screens as $screen)
                 <div class="screen-content screen-bg">
                     <div>{{ $screen->s_start }}到{{ $screen->s_end }}</div>
-                    <div>国语</div>
+                    <div>英语</div>
                     <div>{{ $screen->s_name }}</div>
                     <div>{{ $screen->price }}</div>
                     <div><a href="selectSeat?sId={{ $screen->sId }}" class="ticket">立即购票</a></div>
                 </div>
             @endforeach
-            {{--<div class="screen-content screen-bg">--}}
-                {{--<div>11</div>--}}
-                {{--<div>22</div>--}}
-                {{--<div>33</div>--}}
-                {{--<div>44</div>--}}
-                {{--<div>55</div>--}}
-            {{--</div>--}}
-            {{--<div class="screen-content screen-bg">--}}
-                {{--<div>11</div>--}}
-                {{--<div>22</div>--}}
-                {{--<div>33</div>--}}
-                {{--<div>44</div>--}}
-                {{--<div>55</div>--}}
-            {{--</div>--}}
-            {{--<div class="screen-content screen-bg">--}}
-                {{--<div>11</div>--}}
-                {{--<div>22</div>--}}
-                {{--<div>33</div>--}}
-                {{--<div>44</div>--}}
-                {{--<div>55</div>--}}
-            {{--</div>--}}
         </div>
     </div>
 @endsection

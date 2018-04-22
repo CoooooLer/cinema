@@ -172,7 +172,6 @@ class AdminController extends Controller
         $row = $ticket->row;
         $column = $ticket->column;
         $ticket = $ticket->delete();
-
         $user = User::where('username','=',$username)->first();
         $user->money = $user->money+$price;
         $user = $user->save();

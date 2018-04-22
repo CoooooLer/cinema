@@ -15,14 +15,13 @@
 
 @section('content')
 
-    <div class="content">
-
+    <div class="content" style="height: 70vh;">
         <div class="container manual-body">
             <div class="row">
                 <div class="page-right">
                     <div class="m-box">
                         <div class="box-head">
-                            <strong class="box-title">编辑用户</strong>
+                            {{--<strong class="box-title">编辑用户</strong>--}}
                         </div>
                     </div>
                     <div class="box-body">

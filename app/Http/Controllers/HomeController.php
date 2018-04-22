@@ -86,9 +86,10 @@ class HomeController extends Controller
         setcookie('cinemaId',$cinemaId);
         $price = $_GET['price'];
 //        dd($movieId,$cinemaId,$price);
-        $url = 'http://m.maoyan.com/showtime/wrap.json?cinemaid='.$cinemaId.'&movieId='.$movieId;
+//        $url = 'http://m.maoyan.com/showtime/wrap.json?cinemaid='.$cinemaId.'&movieId='.$movieId;
+        $url = 'http://m.maoyan.com/cinemas.json';
         $cinema = $this->getApi($url);
-
+//        dd($cinema);
         $url ='http://api.douban.com/v2/movie/subject/' . $movieId;
         $movie = $this->getApi($url);
         $screens = Screen::all();
@@ -99,7 +100,8 @@ class HomeController extends Controller
         return view('user.showScreen',['cinema' => $cinema,
             'screens' => $screens,
             'date' => $date,
-            'date1' => $date1
+            'date1' => $date1,
+            'movie' => $movie,
         ]);
     }
 

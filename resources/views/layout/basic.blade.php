@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.ico" />
     <title>@yield('title')</title>
 </head>
 <body>
@@ -35,14 +35,14 @@
                             <li class="dropdown ">
                                 <a href="#" class="" data-toggle="dropdown" role="button"  aria-expanded="true">&nbsp;&nbsp;{{ Cookie::get('username') }}&nbsp;&nbsp;<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="personal"><span class="glyphicon glyphicon-user"></span>个人中心</a></li>
-                                    <li><a href="editPerson?username={{ Cookie::get('username') }}"><span class="glyphicon glyphicon-user"></span>修改资料</a></li>
+                                    <li><a href="personal"><span class="glyphicon glyphicon-home"></span>&nbsp;个人中心</a></li>
+                                    <li><a href="editPerson?username={{ Cookie::get('username') }}"><span class="glyphicon glyphicon-pencil"></span>&nbsp;修改资料</a></li>
 
                                     @if(  Cookie::get('username') === 'admin'  )
-                                        <li><a href="userList"><span class="glyphicon glyphicon-user"></span>用户管理</a></li>
-                                        <li><a href="ticketList"><span class="glyphicon glyphicon-user"></span>购票管理</a></li>
+                                        <li><a href="userList"><span class="glyphicon glyphicon-user"></span>&nbsp;用户管理</a></li>
+                                        <li><a href="ticketList"><span class="glyphicon glyphicon-film"></span>&nbsp;购票管理</a></li>
                                     @endif
-                                    <li><a href=" {{ Route('logOut') }} "><span class="glyphicon glyphicon-user"></span>退出登录</a></li>
+                                    <li><a href=" {{ Route('logOut') }} "><span class="glyphicon glyphicon-remove"></span>&nbsp;退出登录</a></li>
                                     {{--<li><a href="{{ Route('user.show') }}"><span class="glyphicon glyphicon-user"></span>个人中心</a></li>--}}
                                     {{--<li><a href="{{ Route('user.project') }}"><span class="glyphicon glyphicon-list"></span>我的项目</a></li>--}}
                                     {{--<li><a href="{{ Route('dashboard') }}"><span class="glyphicon glyphicon-home"></span>后台管理</a></li>--}}

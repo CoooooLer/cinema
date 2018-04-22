@@ -16,7 +16,7 @@
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-addon">
-                                <span class="glyphicon glyphicon-user"></span>
+                                <span class="glyphicon glyphicon-user"></span>&nbsp;
                             </div>
                             <input class="form-control username all" placeholder="用户名 只能用英文字和汉字" type="text" name="username">
                         </div>

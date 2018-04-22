@@ -17,7 +17,7 @@
 
 @section('content')
 
-    <div class="content">
+    <div class="content" style="height: 80vh;">
         <div class="container manual-body">
             <div class="row">
                 <div class="page-right">
@@ -58,7 +58,7 @@
                                                 <a href="userEdit?uId={{ $user->uId }}" class="btn btn-sm btn-default">编辑</a>
                                                 @if( $user->username != 'admin' )
                                                     @if( $user->username != Cookie::get('username'))
-                                                        <input type="button" id="{{ $user->uid }}" name="{{ $user->uid }}" class="btn btn-danger btn-sm drop" value="删除" />
+                                                        <input type="button" id="{{ $user->uId }}" name="{{ $user->uId }}" class="btn btn-danger btn-sm drop" value="删除" />
                                                     @endif
                                                 @endif
                                             </td>

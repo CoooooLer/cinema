@@ -60,10 +60,6 @@
                     {{--@include('layout.message')--}}
 
                 </form>
-
-
-
-
             </div>
         </div>
     </div>

@@ -10,20 +10,18 @@
 @section('title','添加用户')
 
 @section('header')
-
+    @parent
 @endsection
 
 @section('content')
 
-    <div class="content">
-
+    <div class="content" style="height: 80vh;">
         <div class="container manual-body">
             <div class="row">
-
                 <div class="page-right">
                     <div class="m-box">
                         <div class="box-head">
-                            <strong class="box-title">创建用户</strong>
+                            {{--<strong class="box-title">创建用户</strong>--}}
                         </div>
                     </div>
                     <div class="box-body">
