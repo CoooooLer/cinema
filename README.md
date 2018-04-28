@@ -1,14 +1,15 @@
 ### 第一个座位不能选择
-
 ```
-1.  composer install 
-```
- 
-```
-2.  配置 .env
+1.  配置 .env
 ```
 ```
-3. php artisan cinema:init
+2.  composer install 
+```
+```
+3. php artisan key:generate
+```
+```
+4. php artisan cinema:init
 ```
 ```
 PS: screen and user 需要填充数据
