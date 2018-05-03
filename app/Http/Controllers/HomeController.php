@@ -228,7 +228,7 @@ class HomeController extends Controller
     }
 
 
-    //调用影片API、影院API
+    //API处理
     public function getApi($url)
     {
         $client = new Client();

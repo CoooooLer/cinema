@@ -60,7 +60,9 @@ class CinemaInit extends Command
 
         $sIdLen = $this->ask('请输入创建的影厅个数：默认2',2);
         $rowLen = $this->ask('请输入每一个影厅座位的行数：默认7',7);
-        $columnLen = $this->ask('请输入每一个影厅座位的列数：默认12',12);
+//        $columnLen = $this->ask('请输入每一个影厅座位的列数：默认12',12);
+        $this->info('影厅列数为12列');
+        $columnLen = 12;
         for ($sId=1;$sId<=$sIdLen;$sId++)
         {
             Screen::create([

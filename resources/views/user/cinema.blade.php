@@ -8,8 +8,7 @@
 
 @section('content')
     @parent
-    <form action="showScreen" method="get">
-        {{ csrf_field() }}
+
         <div class="filmInfo-banner">
             <div class="wrapper">
                 <div class="filmInfo-box">
@@ -40,19 +39,22 @@
             <div class="cinema-list">
                 @foreach( array_values($cinemas['data'])[0] as $cinema1)
                     {{--@foreach($cinema1 as $cinema2)--}}
-                    <div class="cinema-unit">
-                        <div class="cinema-info">
-                            <a href="">{{ $cinema1['nm'] }}</a>
-                            <span>地址：{{ $cinema1['addr'] }}</span>
+                    <form action="showScreen" method="get">
+                        {{ csrf_field() }}
+                        <div class="cinema-unit">
+                            <div class="cinema-info">
+                                <a href="">{{ $cinema1['nm'] }}</a>
+                                <span>地址：{{ $cinema1['addr'] }}</span>
+                            </div>
+                            <div class="cinema-ticket">
+                                <div class="price" data-price="{{ $cinema1['sellPrice'] }}">￥{{ $cinema1['sellPrice'] }}起</div>
+                                <input type="hidden" value="{{ $cinema1['id'] }}" name="cinemaId">
+                                <input type="hidden" value="{{ $cinema1['sellPrice'] }}" name="price">
+                                {{--<a href="showScreen?movieId=$results['id']&cinemaId=$cinema1['id']&price=$cinema1['sellPrice]" data-cinemaId="{{ $cinema1['id'] }}" class="seat">选座购票</a>--}}
+                                <input type="submit" class="seat btn btn-danger" value="选座购票" style="border-radius: 100px">
+                            </div>
                         </div>
-                        <div class="cinema-ticket">
-                            <div class="price" data-price="{{ $cinema1['sellPrice'] }}">￥{{ $cinema1['sellPrice'] }}起</div>
-                            <input type="hidden" value="{{ $cinema1['id'] }}" name="cinemaId">
-                            <input type="hidden" value="{{ $cinema1['sellPrice'] }}" name="price">
-                            {{--<a href="showScreen?movieId=$results['id']&cinemaId=$cinema1['id']&price=$cinema1['sellPrice]" data-cinemaId="{{ $cinema1['id'] }}" class="seat">选座购票</a>--}}
-                            <input type="submit" class="seat btn btn-danger" value="选座购票" style="border-radius: 100px">
-                        </div>
-                    </div>
+                    </form>
                     {{--@endforeach--}}
                 @endforeach
                 {{--<div class="cinema-unit">--}}
@@ -68,7 +70,7 @@
             </div>
         </div>
 
-    </form>
+
 @endsection
 
 @section('footer')
