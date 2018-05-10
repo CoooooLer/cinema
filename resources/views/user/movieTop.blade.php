@@ -14,7 +14,7 @@
                 @foreach($movies['subjects'] as $movie)
                     <div class="movie-top-unit">
                         <div class="img">
-                            <img src="{{ $movie['images']['small'] }}" alt="">
+                            <img src="https://images.weserv.nl/?url={{ substr($movie['images']['small'],7) }}" alt="">
                         </div>
                         <div class="movie-info-box">
                             <div class="movie-top-title">
