@@ -11,7 +11,7 @@
         <div class="wrapper">
             <div class="filmInfo-box">
                 <div class="filmInfo-img">
-                    <img src=" {{ $results['images']['small'] }} " alt="">
+                    <img src="https://images.weserv.nl/?url={{ substr($results['images']['small'],7) }} " alt="">
                 </div>
                 <div class="filmInfo-info">
                     <h3>{{ $results['title'] }}</h3>
@@ -41,13 +41,13 @@
             <div class="filmInfo-role-box">
                 <div class="director-box">
                     <div class="role-title">导演</div>
-                    <div class="role-img"><img src="{{ $results['directors'][0]['avatars']['small'] }}" alt=""></div>
+                    <div class="role-img"><img src="https://images.weserv.nl/?url={{ substr( $results['directors'][0]['avatars']['small'] ,7) }}" alt=""></div>
                     <div class="role-name">{{ $results['directors'][0]['name'] }}</div>
                 </div>
                 @foreach($results['casts'] as $role)
                     <div class="role-box">
                         <div class="role-title">演员</div>
-                        <div class="role-img"><img src="{{ $role['avatars']['small'] }}" alt=""></div>
+                        <div class="role-img"><img src="https://images.weserv.nl/?url={{ substr($role['avatars']['small'],7) }}" alt=""></div>
                         <div class="role-name">{{ $role['name'] }}</div>
                     </div>
                 @endforeach

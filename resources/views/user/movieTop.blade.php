@@ -63,7 +63,7 @@
                                     <span class="addColor-today">{{ $data['rank']}}</span>
                                     <span>{{ $data['subject']['title'] }}</span>
                                 </div>
-                                <span class="addColor-today">{{ $data['box']/10000 }}万$</span>
+                                <span class="addColor-today">{{ $data['box']/10000 }}万￥</span>
                             </a>
                         </div>
                     @endforeach

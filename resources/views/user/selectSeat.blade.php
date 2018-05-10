@@ -72,7 +72,7 @@
                 <div class="movie-info">
                     <div class="poster">
                         {{--<img src="http://p0.meituan.net/movie/a547dd7f6851d7ced67ec1b6c8b7f3b2447754.jpg@115w_158h_1e_1c">--}}
-                        <img src="{{ $movie['images']['small'] }}">
+                        <img src="https://images.weserv.nl/?url={{ substr($movie['images']['small'],7) }}">
                     </div>
                     <div class="content">
                         {{--<p class="name text-ellipsis">头号玩家</p>--}}

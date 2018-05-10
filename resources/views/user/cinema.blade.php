@@ -13,7 +13,7 @@
             <div class="wrapper">
                 <div class="filmInfo-box">
                     <div class="filmInfo-img">
-                        <img src=" {{ $results['images']['small'] }} " alt="">
+                        <img src="https://images.weserv.nl/?url={{ substr($results['images']['small'],7) }} " alt="">
                     </div>
                     <div class="filmInfo-info">
                         <h3>{{ $results['title'] }}</h3>
@@ -37,7 +37,7 @@
                 <h3>影院列表</h3>
             </div>
             <div class="cinema-list">
-                @foreach( array_values($cinemas['data'])[0] as $cinema1)
+                @foreach( array_values($cinemas['data'])[9] as $cinema1)
                     {{--@foreach($cinema1 as $cinema2)--}}
                     <form action="showScreen" method="get">
                         {{ csrf_field() }}

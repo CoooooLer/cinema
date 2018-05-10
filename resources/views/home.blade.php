@@ -75,7 +75,7 @@
                             {{--@foreach($movie1 as $movie2)--}}
                                 <div class="hot-movie-unit">
                                     <div class="hot-img-box">
-                                        <a href=" movieInfo?id={{ $movie1['id'] }} " target="_blank"><img src="{{ $movie1['images']['large'] }}"></a>
+                                        <a href=" movieInfo?id={{ $movie1['id'] }} " target="_blank"><img src="https://images.weserv.nl/?url={{ substr($movie1['images']['large'] ,7) }}"></a>
                                         {{--<div class="hot-movie-title">--}}
                                             {{--{{ $movie1['title'] }}--}}
                                         {{--</div>--}}
@@ -102,7 +102,7 @@
                                     <span class="addColor-today">{{ $data['rank']}}</span>
                                     <span>{{ $data['subject']['title'] }}</span>
                                 </div>
-                                <span class="addColor-today">{{ $data['box']/10000 }}万$</span>
+                                <span class="addColor-today">{{ $data['box']/10000 }}万￥</span>
                             </a>
                         </div>
                     @endforeach

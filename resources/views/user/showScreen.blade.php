@@ -12,7 +12,7 @@
         <div class="wrapper">
             <div class="filmInfo-box">
                 <div class="filmInfo-img">
-                    {{--<img src=" {{ $results['images']['small'] }} " alt="">--}}
+                    {{--<img src=" https://images.weserv.nl/?url={{ substr($results['images']['small'],7) }} " alt="">--}}
                     <img src="http://p1.meituan.net/deal/__30193438__3831507.jpg@292w_292h_1e_1c" alt="">
                 </div>
                 {{--@foreach($cinema['data']['cinemaDetailModel'] as $cinema2)--}}

@@ -61,6 +61,7 @@ class HomeController extends Controller
         $url = 'http://m.maoyan.com/cinemas.json';
 //        $url = 'http://m.maoyan.com/showtime/wrap.json?cinemaid=7887&movieid=26575103';
         $cinemas = $this->getApi($url);
+//        dd($cinemas);
         return view('user.cinemas', ['cinemas' => $cinemas]);
     }
 

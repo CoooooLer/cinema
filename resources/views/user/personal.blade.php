@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid" style="padding: 0 40px 0 40px;height: 70vh;">
+    <div class="container-fluid" style="padding: 0 40px 0 40px;">
         <div class="row">
             <div class="page-right">
                 <div class="box-body manager">

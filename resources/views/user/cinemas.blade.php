@@ -11,10 +11,10 @@
     <div class="container" style="margin-top: 80px">
         <div class="cinema-title">
             <div class="cinema-line">|</div>
-            <h3>影院列表{{ $cinemas['status'] }}</h3>
+            <h3>影院列表</h3>
         </div>
         <div class="cinema-list">
-            @foreach( array_values($cinemas['data'])[0] as $cinema1)
+            @foreach( array_values($cinemas['data'])[9] as $cinema1)
                 {{--@foreach($cinema1 as $cinema2)--}}
                     <div class="cinema-unit">
                         <div class="cinema-info">
